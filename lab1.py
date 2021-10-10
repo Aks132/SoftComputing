@@ -5,16 +5,13 @@ import math
 
 def sigmoid_binary(x):
     ''' It returns 1/(1+exp(-x)). where the values lies between zero and one '''
-
     return 1/(1+np.exp(-x))
 
 def sigmoid_bipolar(x):
     ''' It returns (1-np.exp(-x))/(1+np.exp(-x)). where the values lies between -1 and 1 '''
-
     return (1-np.exp(-x))/(1+np.exp(-x))
 
 def bell_shaped(x):
-
     mean = np.mean(x)
     std = np.std(x)
     y_out = 1 / (std * np.sqrt(2 * np.pi)) * np.exp(- (x - mean) ** 2 / (2 * std ** 2))
@@ -28,11 +25,9 @@ def RELU(x):
             x1.append(0)
         else:
             x1.append(i)
-
     return x1
 
 def ramp(x):
-
     ramp = []
     for sample in x:
         if sample < 0:
@@ -42,10 +37,9 @@ def ramp(x):
     return ramp
 
 x = np.linspace(-10, 10)
-plt.plot(x, ramp(x))       #call function from above as per your req.
-
+plt.plot(x, sigmoid_bipolar(x))       #call function from above as per your req.
 plt.axis('tight')
-plt.title('Activation Function :RAMP')
+plt.title('Activation Function :Bi-Polar')
 plt.title("Achyut",
              loc='right',
              rotation=45)

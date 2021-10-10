@@ -7,13 +7,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neural_network import MLPClassifier 
 from sklearn.metrics import classification_report, confusion_matrix 
 
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+url = open("iris.csv", "r")
+url.read()
 
 # Let's start by naming the features
 names = ['sepal-length', 'sepal-width', 'petal-length', 'petal-width', 'Class']
 
 # Reading the dataset through a Pandas function
-irisdata = pd.read_csv(url, names=names)
+irisdata = pd.read_csv("iris.csv", names=names)
 
 # Takes first 4 columns and assign them to variable "X"
 X = irisdata.iloc[:, 0:4]
